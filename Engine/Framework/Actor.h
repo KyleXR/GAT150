@@ -16,7 +16,7 @@ namespace neu
 		virtual void Draw(Renderer& renderer);
 
 		virtual void onCollision(Actor* other) {}
-		float GetRadius() { return m_model.GetRadius(); }
+		float GetRadius() { return m_model.GetRadius() * std::max(m_transform.scale.x, m_transform.scale.y); }
 		std::string& GetTag() { return m_tag; }
 
 		friend class Scene;
