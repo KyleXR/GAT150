@@ -9,6 +9,12 @@
 #include "Framework/Scene.h"
 #include "Framework/Game.h"
 
+#include "Components/PlayerComponent.h"
+#include "Components/SpriteComponent.h"
+#include "Components/AudioComponent.h"
+#include "Components/PhysicsComponents.h"
+
+
 #include "Input/InputSystem.h"
 #include "Audio/AudioSystem.h"
 
@@ -27,4 +33,5 @@ namespace neu
 	extern InputSystem g_inputSystem;
 	extern Time g_time;
 	extern AudioSystem g_audioSystem;
+	extern PlayerComponent g_playerComponent;
 }

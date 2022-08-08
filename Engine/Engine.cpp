@@ -6,4 +6,5 @@ namespace neu
 	InputSystem g_inputSystem;
 	Time g_time;
 	AudioSystem g_audioSystem;
+	PlayerComponent g_playerComponent;
 }

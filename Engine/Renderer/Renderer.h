@@ -8,7 +8,7 @@ struct SDL_Window;
 
 namespace neu
 {
-	class Transform;
+	struct Transform;
 
 
 	class Renderer

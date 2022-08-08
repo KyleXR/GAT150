@@ -45,6 +45,6 @@ namespace neu
         SDL_Point point;
         SDL_QueryTexture(m_texture, nullptr, nullptr, &point.x, &point.y);
 
-        return point.x, point.y;
+        return { point.x, point.y };
     }
 }
