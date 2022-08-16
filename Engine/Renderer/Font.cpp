@@ -17,6 +17,11 @@ namespace neu
 		}
 	}
 
+	bool Font::Create(const std::string& filename, void* data)
+	{
+		return false;
+	}
+
 	void Font::Load(const std::string& filename, int fontSize)
 	{ 
 		m_ttfFont = TTF_OpenFont(filename.c_str(), fontSize);

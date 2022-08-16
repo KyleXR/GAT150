@@ -15,6 +15,18 @@ namespace neu
         }
     }
 
+    bool Texture::Create(const std::string& filename, void* data)
+    {
+        va_list args;
+
+        va_start(args, filename);
+        Renderer& renderer = va_arg(args, Renderer);
+
+        va_end(args);
+
+        return Create(renderer, filename);
+    }
+
     bool Texture::Create(Renderer& renderer, const std::string& filename)
     {
         // load surface 

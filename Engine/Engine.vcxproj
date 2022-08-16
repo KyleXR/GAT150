@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="Audio\AudioSystem.cpp" />
     <ClCompile Include="Components\AudioComponent.cpp" />
+    <ClCompile Include="Components\ModelComponent.cpp" />
     <ClCompile Include="Components\PhysicsComponents.cpp" />
     <ClCompile Include="Components\PlayerComponent.cpp" />
     <ClCompile Include="Components\SpriteComponent.cpp" />
@@ -172,16 +173,21 @@
     <ClCompile Include="Input\InputSystem.cpp" />
     <ClCompile Include="Math\Color.cpp" />
     <ClCompile Include="Math\MathUtils.cpp" />
+    <ClCompile Include="Math\Matrix2x2.cpp" />
+    <ClCompile Include="Math\Matrix3x3.cpp" />
     <ClCompile Include="Math\Vector2.cpp" />
+    <ClCompile Include="Math\Vector3.cpp" />
     <ClCompile Include="Renderer\Font.cpp" />
     <ClCompile Include="Renderer\Model.cpp" />
     <ClCompile Include="Renderer\Renderer.cpp" />
     <ClCompile Include="Renderer\Text.cpp" />
     <ClCompile Include="Renderer\Texture.cpp" />
+    <ClCompile Include="Resource\ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio\AudioSystem.h" />
     <ClInclude Include="Components\AudioComponent.h" />
+    <ClInclude Include="Components\ModelComponent.h" />
     <ClInclude Include="Components\PhysicsComponents.h" />
     <ClInclude Include="Components\PlayerComponent.h" />
     <ClInclude Include="Components\RenderComponent.h" />
@@ -193,23 +199,31 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Framework\Actor.h" />
     <ClInclude Include="Framework\Component.h" />
+    <ClInclude Include="Framework\Factory.h" />
     <ClInclude Include="Framework\Game.h" />
     <ClInclude Include="Framework\GameObject.h" />
     <ClInclude Include="Framework\Scene.h" />
+    <ClInclude Include="Framework\Singleton.h" />
     <ClInclude Include="Input\InputSystem.h" />
     <ClInclude Include="Math\Color.h" />
     <ClInclude Include="Math\MathUtils.h" />
+    <ClInclude Include="Math\Matrix2x2.h" />
+    <ClInclude Include="Math\Matrix3x3.h" />
     <ClInclude Include="Math\Random.h" />
     <ClInclude Include="Math\Transform.h" />
     <ClInclude Include="Math\Vector2.h" />
+    <ClInclude Include="Math\Vector3.h" />
     <ClInclude Include="Renderer\Font.h" />
     <ClInclude Include="Renderer\Model.h" />
     <ClInclude Include="Renderer\Renderer.h" />
     <ClInclude Include="Renderer\Text.h" />
     <ClInclude Include="Renderer\Texture.h" />
+    <ClInclude Include="Resource\Resource.h" />
+    <ClInclude Include="Resource\ResourceManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Build\Assets\Enemy.txt" />
+    <Text Include="..\Build\Assets\level.txt" />
     <Text Include="..\Build\Assets\Missile.txt" />
     <Text Include="..\Build\Assets\Model.txt" />
   </ItemGroup>
