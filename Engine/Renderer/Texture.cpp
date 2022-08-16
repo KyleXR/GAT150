@@ -15,7 +15,7 @@ namespace neu
         }
     }
 
-    bool Texture::Create(const std::string& filename, void* data)
+    bool Texture::Create(const std::string filename, ...)
     {
         va_list args;
 

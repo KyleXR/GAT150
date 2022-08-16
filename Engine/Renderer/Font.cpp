@@ -17,7 +17,7 @@ namespace neu
 		}
 	}
 
-	bool Font::Create(const std::string& filename, void* data)
+	bool Font::Create(const std::string filename, ...)
 	{
 		return false;
 	}

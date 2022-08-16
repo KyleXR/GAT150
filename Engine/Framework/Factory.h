@@ -40,7 +40,7 @@ namespace neu
 	template<typename T>
 	inline void Factory::Register(const std::string& key)
 	{
-		m_registry[key] = std:make_unique<Creator<T>>();
+		m_registry[key] = std::make_unique<Creator<T>>();
 	}
 
 	template<typename T>
