@@ -6,13 +6,9 @@ using namespace std;
 int main()
 {
 
-
-
     neu::InitializeMemory();
     neu::SetFilePath("../Assets");
 
-    rapidjson::Document document;
-    bool success = neu::json::Load("json.txt", document);
     assert(success);
 
     std::string str;
@@ -57,6 +53,10 @@ int main()
 
     neu::Scene scene;
 
+    rapidjson::Document document;
+    bool success = neu::json::Load("json.txt", document);
+
+    scene.Read(document);
 
     bool quit = false;
     while (!quit)

@@ -19,6 +19,11 @@
             {
                "type":"PlayerComponent",
                "speed":200
+            },
+            "components":[
+            {
+               "type":"ModelComponent",
+               "model_name": "Models/Player.txt"
             }
          ]
       }

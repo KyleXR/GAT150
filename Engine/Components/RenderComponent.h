@@ -10,5 +10,9 @@ namespace neu
 	public:
 		virtual void Draw(Renderer& renderer) = 0;
 
+
+		// Inherited via Component
+		virtual void Update() override;
+
 	};
 }

@@ -21,7 +21,7 @@ void neu::PlayerComponent::Update()
     float thrust = 0;
     if (neu::g_inputSystem.GetKeyState(neu::key_up) == neu::InputSystem::State::Held)
     {
-        thrust = 400;
+        thrust = speed;
         //direction = Vector2::up;
     }
 
@@ -52,4 +52,16 @@ void neu::PlayerComponent::Update()
            component->Play();
        }
     }
+}
+
+bool neu::PlayerComponent::Write(const rapidjson::Value& value) const
+{
+    return true;
+}
+
+bool neu::PlayerComponent::Read(const rapidjson::Value& value)
+{
+    READ_DATA(value, speed);
+
+    return true;
 }

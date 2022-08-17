@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "Framework/Factory.h"
 #include <algorithm>
 #include <iostream>
 
@@ -50,6 +51,32 @@ namespace neu
 	{
 		actor->m_scene = this;
 		m_actors.push_back(std::move(actor));
+	}
+
+	bool Scene::Write(const rapidjson::Value& value) const
+	{
+		return true;
+	}
+
+	bool Scene::Read(const rapidjson::Value& value)
+	{
+		if (!value.HasMember("actors") || !value["actors"].IsArray()) return false;
+
+		// Read Actors
+		for (auto& actorValue : value.GetArray())
+		{
+			std::string type;
+			READ_DATA(actorValue, type);
+
+			auto actor = Factory::Instance().Create<Actor>(type);
+			if (actor)
+			{
+				// Read Actor
+				actor->Read(actorValue);
+			}
+		}
+
+		return true;
 	}
 
 }
