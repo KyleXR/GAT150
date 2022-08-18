@@ -26,11 +26,16 @@
             },
             {
                "type":"PhysicsComponent",
-               "model_name": "Models/Player.txt"
+               "damping": 0.99
             },
             {
-               "type":"SpriteComponent",
-               "model_name": "Textures/"
+               "type":"SpriteAnimComponent",
+               "texture_name": "Sprites/gothic-hero-run.png",
+               "fps": 12,
+               "num_columns":12,
+               "num_rows":1,
+               "start_frame": 1,
+               "end_frame": 12
             }
          ]
       }

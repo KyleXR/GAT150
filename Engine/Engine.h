@@ -18,6 +18,7 @@
 #include "Components/AudioComponent.h"
 #include "Components/PhysicsComponents.h"
 #include "Components/ModelComponent.h"
+#include "Components/SpriteAnimComponent.h"
 
 
 #include "Input/InputSystem.h"
