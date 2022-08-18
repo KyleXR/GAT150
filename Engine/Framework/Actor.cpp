@@ -65,7 +65,7 @@ namespace neu
 
 		m_transform.Read(value["transform"]);
 
-		if (!value.HasMember("components") || !value["components"].IsArray())
+		if (value.HasMember("components") && value["components"].IsArray())
 		{
 			for (auto& componentValue : value["components"].GetArray())
 			{

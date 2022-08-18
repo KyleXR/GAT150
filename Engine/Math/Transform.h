@@ -2,6 +2,7 @@
 #include "Vector2.h"
 #include "Matrix3x3.h"
 #include "MathUtils.h"
+#include "Serialization/Serializable.h"
 
 namespace neu
 {

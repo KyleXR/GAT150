@@ -17,6 +17,5 @@ namespace neu
 		REGISTER_CLASS(PhysicsComponent);
 		REGISTER_CLASS(PlayerComponent);
 		REGISTER_CLASS(SpriteComponent);
-		Factory::Instance().Register<Actor>("Actor");
 	}
 }

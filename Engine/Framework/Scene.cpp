@@ -63,7 +63,7 @@ namespace neu
 		if (!value.HasMember("actors") || !value["actors"].IsArray()) return false;
 
 		// Read Actors
-		for (auto& actorValue : value.GetArray())
+		for (auto& actorValue : value["actors"].GetArray())
 		{
 			std::string type;
 			READ_DATA(actorValue, type);
@@ -73,6 +73,7 @@ namespace neu
 			{
 				// Read Actor
 				actor->Read(actorValue);
+				Add(std::move(actor));
 			}
 		}
 

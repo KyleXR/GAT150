@@ -20,7 +20,7 @@ namespace neu
 	{
 		std::unique_ptr<GameObject> Create()
 		{
-			return std::unique_ptr<GameObject>();
+			return std::make_unique<T>();
 		}
 	};
 

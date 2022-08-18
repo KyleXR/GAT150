@@ -1,5 +1,6 @@
 #pragma once
 #include "RenderComponent.h"
+#include "Serialization/Serializable.h"
 
 namespace neu
 {
