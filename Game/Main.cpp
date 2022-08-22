@@ -14,6 +14,7 @@ int main()
     neu::g_inputSystem.Initialized();
     neu::g_audioSystem.Initialize();
     neu::g_resources.Initialize();
+    neu::g_physicsSystem.Initialize();
 
     neu::Engine::Instance().Register();
 
@@ -35,6 +36,7 @@ int main()
         neu::g_time.Tick();
         neu::g_inputSystem.Update();
         neu::g_audioSystem.Update();
+        neu::g_physicsSystem.Update();
 
         if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::State::Pressed) quit = true;
 

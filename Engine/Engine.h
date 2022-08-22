@@ -31,6 +31,8 @@
 #include "Renderer/Font.h"
 #include "Renderer/Texture.h"
 
+#include "Physics/PhysicsSystem.h"
+
 #include <memory>
 #include <vector>
 #include <list>
@@ -42,6 +44,7 @@ namespace neu
 	extern Time g_time;
 	extern AudioSystem g_audioSystem;
 	extern ResourceManager g_resources;
+	extern PhysicsSystem g_physicsSystem;
 
 	class Engine : public Singleton<Engine>
 	{

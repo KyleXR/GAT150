@@ -17,7 +17,7 @@ namespace neu
 		Vector2 velocity;
 		Vector2 acceleration;
 
-		float damping = 1;
+		float damping = 1.0f;
 
 		// Inherited via Component
 		virtual bool Write(const rapidjson::Value& value) const override;
