@@ -134,6 +134,9 @@
     <ClCompile Include="Components\RBPhysicsComponent.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Components\CollisionComponent.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Math\MathUtils.h">
@@ -259,19 +262,11 @@
     <ClInclude Include="Components\RBPhysicsComponent.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\Build\Assets\Enemy.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="..\Build\Assets\Missile.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="..\Build\Assets\Model.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="..\Build\Assets\level.txt">
-      <Filter>Resources</Filter>
-    </Text>
+    <ClInclude Include="Physics\Collision.h">
+      <Filter>Source\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\CollisionComponent.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

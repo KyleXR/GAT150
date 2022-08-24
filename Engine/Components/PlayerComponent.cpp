@@ -8,14 +8,12 @@ void neu::PlayerComponent::Update()
     Vector2 direction = Vector2::zero;
     if (neu::g_inputSystem.GetKeyState(neu::key_left) == neu::InputSystem::State::Held)
     {
-        m_owner->m_transform.rotation += 180 * g_time.deltaTime;
-        //direction = Vector2::left;
+        direction = Vector2::left;
     }
 
     if (neu::g_inputSystem.GetKeyState(neu::key_right) == neu::InputSystem::State::Held)
     {
-        m_owner->m_transform.rotation -= 180 * g_time.deltaTime;
-        //direction = Vector2::right;
+        direction = Vector2::right;
     }
 
     float thrust = 0;
@@ -38,19 +36,17 @@ void neu::PlayerComponent::Update()
         component->ApplyForce(force);
 
         // Gravitational Force
-        force = (Vector2{ 400, 300 } - m_owner->m_transform.position).Normalized() * 60.0f;
-        component->ApplyForce(force);
+        //force = (Vector2{ 400, 300 } - m_owner->m_transform.position).Normalized() * 60.0f;
+        component->ApplyForce(direction * speed);
     }
 
     m_owner->m_transform.position += direction * 300 * g_time.deltaTime;
 
     if (neu::g_inputSystem.GetKeyState(neu::key_space) == neu::InputSystem::State::Pressed)
     {
-       auto component =  m_owner->GetComponent<AudioComponent>();
-       if (component)
-       {
-           component->Play();
-       }
+        auto component = m_owner->GetComponent<PhysicsComponent>();
+        if (component)
+        { }
     }
 }
 

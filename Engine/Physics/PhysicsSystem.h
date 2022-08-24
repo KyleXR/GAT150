@@ -43,6 +43,8 @@ namespace neu
 		static Vector2 WorldToScreen(const Vector2& world) { return world * pixelsPerUnit; }
 		static Vector2 ScreenToWorld(const Vector2& screen) { return screen * (1.0f / pixelsPerUnit); }
 
+		void SetCollisionBox(b2Body* body, const CollisionData& data, class Actor* actor = nullptr);
+
 	private:
 		static const float pixelsPerUnit;
 

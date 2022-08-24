@@ -52,8 +52,9 @@ int main()
         neu::g_renderer.EndFrame();
     }
 
+    neu::g_physicsSystem.Shutdown();
+    neu::g_resources.Shutdown();
     neu::g_inputSystem.Shutdown();
     neu::g_renderer.Shutdown();
     neu::g_audioSystem.Shutdown();
-    return 0;
 }
