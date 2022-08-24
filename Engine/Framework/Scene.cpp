@@ -57,6 +57,11 @@ namespace neu
 		m_actors.push_back(std::move(actor));
 	}
 
+	void Scene::RemoveAll()
+	{
+		m_actors.clear();
+	}
+
 	bool Scene::Write(const rapidjson::Value& value) const
 	{
 		return true;

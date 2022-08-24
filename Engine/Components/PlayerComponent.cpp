@@ -2,6 +2,16 @@
 #include "Engine.h"
 #include < iostream>
 
+void neu::PlayerComponent::Initialize()
+{
+    auto component = m_owner->GetComponent<CollisionComponent>();
+    if (component)
+    {
+        component->SetCollisionEnter(std::bind(&OnCollisionEnter, this, std::placeholders::_1));
+        component->SetCollisionExit(std::bind(&OnCollisionExit, this, std::placeholders::_1));
+    }
+}
+
 void neu::PlayerComponent::Update()
 {
 	// update transform with input
@@ -60,4 +70,14 @@ bool neu::PlayerComponent::Read(const rapidjson::Value& value)
     READ_DATA(value, speed);
 
     return true;
+}
+
+void neu::PlayerComponent::OnCollisionEnter(Actor* other)
+{
+    std::cout << "Player Enter\n";
+}
+
+void neu::PlayerComponent::OnCollisionExit(Actor* other)
+{
+    std::cout << "Player Exit\n";
 }
