@@ -7,7 +7,10 @@ namespace neu
 	class AudioComponent : public Component
 	{
 	public:
+		~AudioComponent();
 		AudioComponent() = default;
+
+		CLASS_DECLARATION(AudioComponent)
 
 		void Initialize() override;
 		void Update() override;

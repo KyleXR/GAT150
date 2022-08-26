@@ -28,7 +28,6 @@ namespace neu
 
 	void AudioSystem::Update()
 	{
-		// !! call update() on the fmod system 
 		m_fmodSystem->update();
 	}
 

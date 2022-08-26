@@ -8,7 +8,7 @@ namespace neu
 {
     Text::~Text()
     {
-        if (m_texture != NULL)
+        if (m_texture)
         {
             SDL_DestroyTexture(m_texture);
         }

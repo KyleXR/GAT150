@@ -7,13 +7,14 @@ void neu::PlayerComponent::Initialize()
     auto component = m_owner->GetComponent<CollisionComponent>();
     if (component)
     {
-        component->SetCollisionEnter(std::bind(&OnCollisionEnter, this, std::placeholders::_1));
-        component->SetCollisionExit(std::bind(&OnCollisionExit, this, std::placeholders::_1));
+        component->SetCollisionEnter(std::bind(&PlayerComponent::OnCollisionEnter, this, std::placeholders::_1));
+        component->SetCollisionExit(std::bind(&PlayerComponent::OnCollisionExit, this, std::placeholders::_1));
     }
 }
 
 void neu::PlayerComponent::Update()
 {
+    float thrust = 0;
 	// update transform with input
     Vector2 direction = Vector2::zero;
     if (neu::g_inputSystem.GetKeyState(neu::key_left) == neu::InputSystem::State::Held)
@@ -26,17 +27,14 @@ void neu::PlayerComponent::Update()
         direction = Vector2::right;
     }
 
-    float thrust = 0;
     if (neu::g_inputSystem.GetKeyState(neu::key_up) == neu::InputSystem::State::Held)
     {
-        thrust = speed;
-        //direction = Vector2::up;
+        auto component = m_owner->GetComponent<PhysicsComponent>();
+        if (component)
+        {
+            component->ApplyForce(Vector2::up * 500);
+        }
     }
-
-    /*if (neu::g_inputSystem.GetKeyState(neu::key_down) == neu::InputSystem::State::Held)
-    {
-        direction = Vector2::down;
-    }*/
 
     auto component = m_owner->GetComponent<PhysicsComponent>();
     if (component)

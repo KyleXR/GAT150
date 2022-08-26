@@ -5,7 +5,7 @@ namespace neu
 {
 	bool AudioChannel::IsPlaying()
 	{
-		// !! if channel is null, return false 
+		if (m_channel == nullptr) return false;
 
 		bool isPlaying;
 		m_channel->isPlaying(&isPlaying);
@@ -20,26 +20,26 @@ namespace neu
 
 	void AudioChannel::SetPitch(float pitch)
 	{
-		if (IsPlaying()) pitch;// !! call setPitch on channel (pass pitch) 
+		if (IsPlaying()) m_channel->setPitch(pitch);// !! call setPitch on channel (pass pitch) 
 	}
 
 	float AudioChannel::GetPitch()
 	{
 		float pitch = 0;
-		if (IsPlaying()) // !! call getPitch (pass pointer to pitch &) 
+		if (IsPlaying()) m_channel->getPitch(&pitch);// !! call getPitch (pass pointer to pitch &) 
 
 			return pitch;
 	}
 
 	void AudioChannel::SetVolume(float volume)
 	{
-		if (IsPlaying()) volume;// !! call setVolume on channel (pass volume) 
+		if (IsPlaying()) m_channel->setVolume(volume);// !! call setVolume on channel (pass volume) 
 	}
 
 	float AudioChannel::GetVolume()
 	{
 		float volume = 0;
-		if (IsPlaying()) // !! call getVolume (pass pointer to volume &) 
+		if (IsPlaying()) m_channel->getVolume(&volume);// !! call getVolume (pass pointer to volume &) 
 
 			return volume;
 	}

@@ -16,6 +16,7 @@
 #include "Components/PlayerComponent.h"
 #include "Components/SpriteComponent.h"
 #include "Components/AudioComponent.h"
+#include "Components/TextComponent.h"
 #include "Components/CollisionComponent.h"
 #include "Components/PhysicsComponents.h"
 #include "Components/RBPhysicsComponent.h"
