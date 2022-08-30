@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "TheHunt.h"
 #include <iostream>
 
 using namespace std; 
@@ -15,6 +16,7 @@ int main()
     neu::g_audioSystem.Initialize();
     neu::g_resources.Initialize();
     neu::g_physicsSystem.Initialize();
+    neu::g_eventManager.Initialize();
 
     neu::Engine::Instance().Register();
 
@@ -22,21 +24,9 @@ int main()
     neu::g_renderer.CreateWindow("Window", 800, 600);
     neu::g_renderer.SetClearColor(neu::Color{ 50, 50, 50, 255 });
 
-    neu::Scene scene;
-
-    rapidjson::Document document;
-    bool success = neu::json::Load("level.txt", document);
-
-    scene.Read(document);
-    scene.Initialize();
-
-    for (int i = 0; i < 10; i++)
-    {
-        auto actor = neu::Factory::Instance().Create<neu::Actor>("Coin");
-        actor->m_transform.position = { neu::randomf(0,800), 100.0f };
-        actor->Initialize();
-        scene.Add(std::move(actor));
-    }
+   // Create Game
+    unique_ptr<TheHunt> game = make_unique<TheHunt>();
+    game->Initialize();
 
     bool quit = false;
     while (!quit)
@@ -46,24 +36,29 @@ int main()
         neu::g_inputSystem.Update();
         neu::g_audioSystem.Update();
         neu::g_physicsSystem.Update();
+        neu::g_eventManager.Update();
 
         if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::State::Pressed) quit = true;
 
-        // Update Scene
-       scene.Update();
+       game->Update();
 
         // Render
         neu::g_renderer.BeginFrame();
 
-        scene.Draw(neu::g_renderer);
+        game->Draw(neu::g_renderer);
 
         neu::g_renderer.EndFrame();
     }
-    scene.RemoveAll();
+
+    game->Shutdown();
+    game.reset();
+
+    neu::Factory::Instance().Shutdown();
 
     neu::g_physicsSystem.Shutdown();
     neu::g_resources.Shutdown();
     neu::g_inputSystem.Shutdown();
     neu::g_renderer.Shutdown();
     neu::g_audioSystem.Shutdown();
+    neu::g_eventManager.Shutdown();
 }

@@ -95,12 +95,12 @@
          "components":[
             {
                "type":"PlayerComponent",
-               "speed":30
+               "speed":40
             },
             {
                "type":"RBPhysicsComponent",
-               "damping":0.8,
-               "data.gravity_scale":1,
+               "damping":0.99,
+               "data.gravity_scale":2,
                "data.constrain_angle":true
             },
             {
@@ -128,46 +128,7 @@
                "play_on_start":true
             }
          ]
-      },
-      {
-         "type":"Actor",
-         "name":"Coin",
-         "tag":"Pickup",
-         "prefab":true,
-         "transform":{
-            "position":[
-               200,
-               200
-            ],
-            "scale":[
-               0.5,
-               0.5
-            ],
-            "rotation":0
-         },
-         "components":[
-            {
-               "type":"RBPhysicsComponent",
-               "damping":0.8,
-               "data.gravity_scale":1,
-               "data.constrain_angle":true
-            },
-            {
-               "type":"CollisionComponent",
-               "data.size":[48, 48],
-               "data.restitution": 0.7
-            },
-            {
-               "type":"SpriteAnimComponent",
-               "texture_name":"Textures/coin.png",
-               "fps":12,
-               "num_columns":8,
-               "num_rows":1,
-               "start_frame":1,
-               "end_frame":8
-            }
-         ]
-      },
+      },       
       {
          "type":"Actor",
          "name":"Music",

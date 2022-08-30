@@ -32,7 +32,7 @@ void neu::PlayerComponent::Update()
         auto component = m_owner->GetComponent<PhysicsComponent>();
         if (component)
         {
-            component->ApplyForce(Vector2::up * 500);
+            component->ApplyForce(Vector2::up * 10);
         }
     }
 
@@ -72,6 +72,16 @@ bool neu::PlayerComponent::Read(const rapidjson::Value& value)
 
 void neu::PlayerComponent::OnCollisionEnter(Actor* other)
 {
+    if (other->GetName() == "Coin")
+    {
+        Event event;
+        event.name = "EVENT_ADD_POINTS";
+        event.data = 100;
+
+        g_eventManager.Notify(event);
+
+        other->SetDestroy();
+    }
     std::cout << "Player Enter\n";
 }
 

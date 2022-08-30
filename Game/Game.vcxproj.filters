@@ -18,19 +18,27 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TheHunt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Build\Assets\Enemy.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="..\Build\Assets\level.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="..\Build\Assets\Missile.txt">
-      <Filter>Resources</Filter>
-    </Text>
     <Text Include="..\Build\Assets\Model.txt">
       <Filter>Resources</Filter>
     </Text>
+    <Text Include="..\Build\Assets\Scenes\Level.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="..\Build\Assets\Scenes\Prefabs.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="..\Build\Assets\Scenes\Tilemap.txt">
+      <Filter>Resources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TheHunt.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

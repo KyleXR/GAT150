@@ -8,6 +8,7 @@ namespace neu
 	{
 		name = other.name;
 		tag = other.tag;
+		m_transform = other.m_transform;
 
 		m_scene = other.m_scene;
 
@@ -25,15 +26,11 @@ namespace neu
 	}
 	void Actor::Update()
 	{
-		for (auto&component : m_components)
-		{
-			component->Update();
-		}
+		if (!active) return;
 
-		for (auto& child : m_children)
-		{
-			child->Update();
-		}
+		for (auto&component : m_components) component->Update();
+
+		for (auto& child : m_children) child->Update();
 
 		if (m_parent) m_transform.Update(m_parent->m_transform.matrix);
 		m_transform.Update();
@@ -41,6 +38,8 @@ namespace neu
 
 	void neu::Actor::Draw(Renderer& renderer)
 	{
+		if (!active) return;
+
 		for (auto& component : m_components)
 		{
 			auto renderComponent = dynamic_cast<RenderComponent*>(component.get());
@@ -81,10 +80,9 @@ namespace neu
 	{
 		READ_DATA(value, tag);
 		READ_DATA(value, name);
+		READ_DATA(value, active);
 
 		if (value.HasMember("transform")) m_transform.Read(value["transform"]);
-
-		//m_transform.Read(value["transform"]);
 
 		if (value.HasMember("components") && value["components"].IsArray())
 		{

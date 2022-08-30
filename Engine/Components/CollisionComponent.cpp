@@ -5,8 +5,18 @@
 void neu::CollisionComponent::Initialize()
 {
     auto component = m_owner->GetComponent<RBPhysicsComponent>();
-    if (component) 
+    if (component)
     {
+        // if data was not set, get size from render component source rect 
+        if (data.size.x == 0 && data.size.y == 0) 
+            {
+            auto renderComponent = m_owner;// !! check render component from the owner 
+                if (renderComponent)
+                {
+                    data.size = Vector2{source.w, source.h };
+                }
+            }
+
         g_physicsSystem.SetCollisionBox(component->m_body, data, m_owner);
     }
 }

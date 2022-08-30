@@ -31,7 +31,7 @@ void neu::SpriteAnimComponent::Update()
 
 void neu::SpriteAnimComponent::Draw(Renderer& renderer)
 {
-    renderer.Draw(m_texture, source, m_owner->m_transform);
+    enderer.Draw(m_texture, GetSource(), m_owner->m_transform);
 }
 
 bool neu::SpriteAnimComponent::Write(const rapidjson::Value& value) const
@@ -53,4 +53,20 @@ bool neu::SpriteAnimComponent::Read(const rapidjson::Value& value)
     READ_DATA(value, end_frame);
 
     return true;
+}
+
+Rect& neu::SpriteAnimComponent::GetSource()
+{
+    // calculate source rect 
+    Vector2 cellSize = m_texture->GetSize() / Vector2{ num_columns, num_rows };
+
+    int column = (frame - 1) % num_columns;
+    int row = (frame - 1) / num_columns;
+
+    source.x = (int)(column * cellSize.x);
+    source.y = (int)(row * cellSize.y);
+    source.w = (int)(cellSize.x);
+    source.h = (int)(cellSize.y);
+
+    return source;
 }

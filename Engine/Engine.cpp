@@ -8,6 +8,7 @@ namespace neu
 	AudioSystem g_audioSystem;
 	ResourceManager g_resources;
 	PhysicsSystem g_physicsSystem;
+	EventManager g_eventManager;
 
 
 	void Engine::Register()
@@ -22,5 +23,6 @@ namespace neu
 		REGISTER_CLASS(PlayerComponent);
 		REGISTER_CLASS(SpriteComponent);
 		REGISTER_CLASS(SpriteAnimComponent);
+		REGISTER_CLASS(TilemapComponent);
 	}
 }

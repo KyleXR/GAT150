@@ -59,6 +59,8 @@ namespace neu
 
 	void Scene::RemoveAll()
 	{
+		for (auto& actor : m_actors) { actor->SetDestroy(); }
+
 		m_actors.clear();
 	}
 
@@ -82,7 +84,18 @@ namespace neu
 			{
 				// Read Actor
 				actor->Read(actorValue);
-				Add(std::move(actor));
+				bool prefab = false;
+				READ_DATA(actorValue, prefab);
+				if (prefab)
+				{
+					std::string name = actor->GetName();
+					Factory::Instance().RegisterPreFab(name, std::move(actor));
+				}
+				else
+				{
+					Add(std::move(actor));
+
+				}
 			}
 		}
 
